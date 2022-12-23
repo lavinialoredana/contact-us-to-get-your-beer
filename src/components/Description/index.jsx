@@ -2,17 +2,17 @@
 
 const Description=({
     customerDescription,
-    handleCustomerDescription
+    handleCustomerDescriptionChange
 })=>{
     console.log("Customer Description", customerDescription)
     return(
         <div className="description-container"> 
             <textarea
             rows="4"
-            cols="5"
+            cols="50"
             label="description"
-            defaultValue={customerDescription}
-            onChange={handleCustomerDescription}
+            value={customerDescription}
+            onChange={handleCustomerDescriptionChange}
             >
             </textarea>
         </div>
