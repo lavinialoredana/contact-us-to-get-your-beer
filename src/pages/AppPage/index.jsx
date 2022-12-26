@@ -1,3 +1,5 @@
+import AppCss from "./App.css"
+
 import { useCallback, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Email from "../../components/Email";
@@ -66,15 +68,17 @@ function App() {
           ORDER NOW <br /> our selection of punk beers
         </h1>
       </header>
-      {
-        beersDetails.map(beer =>{
-          return <BeerDetails 
-          key={beer.beerId}
-          beerName={beer.beerName}
-          beerImage={beer.beerImage}
-          />;
-        })
-      }
+      <div className="Beers-container">
+        {beersDetails.map((beer) => {
+          return (
+            <BeerDetails
+              key={beer.beerId}
+              beerName={beer.beerName}
+              beerImage={beer.beerImage}
+            />
+          );
+        })}
+      </div>
       <Email email={email} handleEmailChange={onEmailChange} />
       <Description
         customerDescription={customerDescription}

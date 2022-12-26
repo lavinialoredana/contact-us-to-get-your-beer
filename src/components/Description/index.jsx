@@ -1,4 +1,4 @@
-
+import DescriptionCss from './Description.css';
 
 const Description=({
     customerDescription,
@@ -8,9 +8,10 @@ const Description=({
     return(
         <div className="description-container"> 
             <textarea
-            rows="4"
-            cols="50"
+            rows="8"
+            cols="60"
             label="description"
+            placeholder='Type here your request'
             value={customerDescription}
             onChange={handleCustomerDescriptionChange}
             >

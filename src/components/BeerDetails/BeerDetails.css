@@ -1,0 +1,13 @@
+.Beer-details-container{
+    width: calc(100% / 4);
+    height: 400px;
+    margin: 0 3rem;
+}
+
+.Beer-image{
+    height: 320px;
+    width: 100px;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}

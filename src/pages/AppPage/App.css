@@ -1,17 +1,44 @@
-.App {
-  text-align: center;
+html,
+body {
+  /* Make the body to be as tall as browser window */
+  height: 100%;
 }
 
+.area-one {
+  /* With the body as tall as the browser window
+     this will be too */
+  height: 100%;
+}
+
+.content {
+  /* Subtract the header size */
+  height: calc(100% - 10vh);
+  overflow: auto;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  
+}
 
 .App-header {
   background-color: #282c34;
   min-height: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 100vw;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin-bottom: 3rem;
 }
 
-
+.Beers-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  
+  
+  
+}

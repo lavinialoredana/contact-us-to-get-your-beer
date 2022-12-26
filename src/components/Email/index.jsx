@@ -5,6 +5,7 @@ const Email = ({ email, handleEmailChange }) => {
       <input
         type="text"
         label="E-mail"
+        placeholder="E-mail"
         value={email}
         onChange={handleEmailChange}
       ></input>
