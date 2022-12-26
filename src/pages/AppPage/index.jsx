@@ -1,4 +1,4 @@
-import AppCss from "./App.css"
+import "./App.css"
 
 import { useCallback, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
@@ -47,7 +47,8 @@ function App() {
         return {
           beerId:beer.id,
           beerName:beer.name,
-          beerImage: beer.image_url
+          beerImage: beer.image_url,
+          isClicked: false
         };
        });
       setBeersDetails(beersArray);
@@ -59,7 +60,6 @@ function App() {
     useEffect(()=>{
        fetchBeers();
     }, []);
-   
 
   return (
     <div className="App">
@@ -73,8 +73,12 @@ function App() {
           return (
             <BeerDetails
               key={beer.beerId}
-              beerName={beer.beerName}
-              beerImage={beer.beerImage}
+              id={beer.beerId}
+              name={beer.beerName}
+              image={beer.beerImage}
+              clicked={beer.isClicked}
+              setBeersDetails={setBeersDetails}
+              beersDetails={beersDetails}
             />
           );
         })}

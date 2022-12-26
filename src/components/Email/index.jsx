@@ -1,5 +1,4 @@
 const Email = ({ email, handleEmailChange }) => {
-  console.log("email", email);
   return (
     <div className="email-container">
       <input

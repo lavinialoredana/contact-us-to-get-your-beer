@@ -4,7 +4,6 @@ const Description=({
     customerDescription,
     handleCustomerDescriptionChange
 })=>{
-    console.log("Customer Description", customerDescription)
     return(
         <div className="description-container"> 
             <textarea
