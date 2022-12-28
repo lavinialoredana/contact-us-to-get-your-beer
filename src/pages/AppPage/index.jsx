@@ -25,12 +25,15 @@ function App() {
 
   const onSubmitOrderClick = () => {
     console.log("onsubmit");
+    const orderedBeer = beersDetails.find((beer) => beer.isClicked === true);
+    console.log("ordered beer", orderedBeer)
     setOrdersList([
       ...ordersList,
       {
         id: uuidv4(),
         email: email,
         customerDescription: customerDescription,
+        orderedBeer: orderedBeer
       },
     ]);
     setEmail("");
@@ -60,6 +63,9 @@ function App() {
     useEffect(()=>{
        fetchBeers();
     }, []);
+
+
+    
 
   return (
     <div className="App">
