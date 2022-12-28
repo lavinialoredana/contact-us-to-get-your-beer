@@ -9,7 +9,7 @@ const BeerDetails = ({
   beersDetails,
 }) => {
   const handleBeerClick = (event) => {
-    //  what would be a good naming for this?
+    //  QUESTION 1: what would be a good naming for this?
     //  new array of beers upon one beer is clicked and its isClicked prop changes from true to false
 
     const newBeersArrayOnClick = beersDetails.map((beer) => {

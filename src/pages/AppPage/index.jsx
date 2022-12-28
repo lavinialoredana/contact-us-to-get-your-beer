@@ -25,19 +25,26 @@ function App() {
 
   const onSubmitOrderClick = () => {
     console.log("onsubmit");
-    const orderedBeer = beersDetails.find((beer) => beer.isClicked === true);
+    const orderedBeer = beersDetails.find((beer) => beer.isClicked === true) 
     console.log("ordered beer", orderedBeer)
-    setOrdersList([
-      ...ordersList,
-      {
-        id: uuidv4(),
-        email: email,
-        customerDescription: customerDescription,
-        orderedBeer: orderedBeer
-      },
-    ]);
-    setEmail("");
-    setCustomerDescription("");
+    if(orderedBeer === undefined){
+      alert("You forgot to choose your beer!")
+    } else{
+      setOrdersList([
+        ...ordersList,
+        {
+          id: uuidv4(),
+          email: email,
+          customerDescription: customerDescription,
+          orderedBeer: orderedBeer
+        },
+      ]);
+      setEmail("");
+      setCustomerDescription("");
+      // QUESTION 2: I managed to change the state of the beerDetails (orderedBeer) from isClicked= true to false; How bad is this given that
+      // the theory says you have to do it via the setState. 
+      orderedBeer.isClicked=false;
+    }
   };
 
   // useCallback it's a fn that we use when we want our fn to be created only once
