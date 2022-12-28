@@ -1,5 +1,5 @@
 import "./App.css"
-
+import { useNavigate } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Email from "../../components/Email";
@@ -10,11 +10,14 @@ import OrdersFeed from "../../components/OrdersFeed";
 import Axios from "axios";
 import BeerDetails from "../../components/BeerDetails";
 
+
 function App() {
   const [email, setEmail] = useState("");
   const [customerDescription, setCustomerDescription] = useState("");
   const [ordersList, setOrdersList] = useState([]);
   const [beersDetails, setBeersDetails] = useState([]);
+
+  let navigate = useNavigate();
 
   const onEmailChange = (event) => {
     setEmail(event.target.value);
@@ -44,6 +47,7 @@ function App() {
       // QUESTION 2: I managed to change the state of the beerDetails (orderedBeer) from isClicked= true to false; How bad is this given that
       // the theory says you have to do it via the setState. 
       orderedBeer.isClicked=false;
+      navigate("/orders");
     }
   };
 
