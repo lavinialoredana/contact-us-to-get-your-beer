@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import Email from "../../components/Email";
 import Description from "../../components/Description";
 import "./App.css";
-import SubmitButton from "../../components/SubmitButton";
+import Button from "../../components/Button";
 import Axios from "axios";
 import BeerDetails from "../../components/BeerDetails";
 
@@ -97,8 +97,7 @@ function App() {
         customerDescription={customerDescription}
         handleCustomerDescriptionChange={onCustomerDescriptionChange}
       />
-      <SubmitButton handleSubmitOrderClick={onSubmitOrderClick} />
-      
+      <Button handleOnClick={onSubmitOrderClick} buttonName = "Submit Order"/>
     </div>
   );
 }
