@@ -1,19 +1,23 @@
 import "./App.css";
 import { useNavigate } from "react-router-dom";
 import { OrdersListContext } from "../../context/OrdersProvider";
-import { useCallback, useEffect, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Email from "../../components/Email";
 import Description from "../../components/Description";
 import "./App.css";
 import Button from "../../components/Button";
-import Axios from "axios";
 import BeerDetails from "../../components/BeerDetails";
+import useFetch from "../../Hooks/useFetch";
 
 function App() {
   const [email, setEmail] = useState("");
   const [customerDescription, setCustomerDescription] = useState("");
-  const [beersDetails, setBeersDetails] = useState([]);
+  
+    const [beersDetails, setBeersDetails] = useFetch(
+      "https://api.punkapi.com/v2/beers?page=1&per_page=4"
+    );
+
 
   const { refreshOrdersList } = useContext(OrdersListContext);
 
@@ -45,30 +49,6 @@ function App() {
       navigate("/orders");
     }
   };
-
-  // useCallback it's a fn that we use when we want our fn to be created only once
-  const fetchBeers = useCallback(async () => {
-    const response = await Axios.get(
-      "https://api.punkapi.com/v2/beers?page=1&per_page=4"
-    );
-
-    const beersArray = response.data.map((beer) => {
-      return {
-        beerId: beer.id,
-        beerName: beer.name,
-        beerImage: beer.image_url,
-        isClicked: false,
-      };
-    });
-    setBeersDetails(beersArray);
-  }, []);
-
-  // useEffect it's a fn that we use to wrap inside code that we want to execute only once
-  // it's mostly used with fetch data
-
-  useEffect(() => {
-    fetchBeers();
-  }, []);
 
   return (
     <div className="App">
