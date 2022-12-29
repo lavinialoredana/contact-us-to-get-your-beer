@@ -27,11 +27,9 @@ function App() {
   };
 
   const onSubmitOrderClick = () => {
-    console.log("onsubmit");
     const orderedBeer = beersDetails.find((beer) => beer.isClicked === true);
-    console.log("ordered beer", orderedBeer);
-    if (orderedBeer === undefined) {
-      alert("You forgot to choose your beer!");
+    if (orderedBeer === undefined || email === "") {
+      alert("You need to choose your beer and insert your email!");
     } else {
       refreshOrdersList({
         id: uuidv4(),
